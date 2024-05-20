@@ -18,6 +18,9 @@
             | nome                                                                                                 |  | senha        |
             | a                                                                                                    |  | 123456       |
             | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa |  | 123456789123 |
+            | 😂🤣😃                                                                                               |  | joaozinho    |
+            | 123                                                                                                  |  | joaozinho    |
+            | @#$%                                                                                                 |  | joaozinho    |
 
             Cenário: Deve ser possível cadastrar um usuário com o campo email de 60 caracteres
             E informo o nome "João Pedro"
