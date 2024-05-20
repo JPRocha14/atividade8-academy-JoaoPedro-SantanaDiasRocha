@@ -69,7 +69,9 @@ When('não preencho a senha', function () { });
 When('não confirmo a senha', function () { });
 
 Then('a mensagem de sucesso será exibida', function () {
-    cy.wait('@postUsers');
+    cy.wait('@postUsers').then(function (usuario) {
+        expect(usuario.response.body.type).to.eq(0);
+    });
     cy.get(paginaCadastro.modalMessege).invoke('text').should('contain', 'SucessoCadastro realizado!');
 });
 
