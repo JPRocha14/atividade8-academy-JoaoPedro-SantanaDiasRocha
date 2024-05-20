@@ -19,6 +19,15 @@
             | a                                                                                                    |  | 123456       |
             | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa |  | 123456789123 |
 
+            Cenário: Deve ser possível cadastrar um usuário com o campo email de 60 caracteres
+            E informo o nome "João Pedro"
+            E informo o email com 60 caracteres
+            E informo a senha "123456"
+            E confirmo a senha "123456"
+            E confirmo a operação
+            Então a mensagem de sucesso será exibida
+            E o usuário será cadastrado
+
             Cenário: Não deve ser possível cadastrar um usuário sem informar o campo nome
             E não preencho o nome
             E informo o email "joao@joao.com"

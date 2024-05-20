@@ -22,6 +22,14 @@ When('informo um e-mail válido', function () {
     paginaCadastro.typeEmail(novoEmail);
 });
 
+When('informo o email com 60 caracteres', function () {
+    novoEmail = faker.internet.email().toLowerCase();
+    while (novoEmail.length < 60) {
+        novoEmail += 'm';
+    }
+    paginaCadastro.typeEmail(novoEmail);
+});
+
 When('informo o email inválido {string}', function (email) {
     paginaCadastro.typeEmail(email);
 });
