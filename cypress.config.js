@@ -11,6 +11,7 @@ module.exports = defineConfig({
     env: {
       TAGS: "not @ignore",
     },
+    baseUrl: 'https://raromdb-frontend-c7d7dc3305a0.herokuapp.com',
     specPattern: "cypress/e2e/**/*.feature",
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);
