@@ -24,4 +24,11 @@ export default class LoginPage {
     clickButtonLogin() {
         cy.get(this.buttonLogin).should('be.visible').click();
     }
+
+
+    typeLogin(email, senha) {
+        cy.get(this.inputEmail).type(email);
+        cy.get(this.inputSenha).type(senha);
+        this.clickButtonLogin();
+    }
 }

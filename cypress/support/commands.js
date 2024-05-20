@@ -23,6 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import LoginPage from "./pages/login.page";
+var paginaLogin = new LoginPage();
 
 Cypress.Commands.add('cadastroUser', function (nome, email, senha) {
     return cy.request({
@@ -33,5 +35,12 @@ Cypress.Commands.add('cadastroUser', function (nome, email, senha) {
             email: email,
             password: senha
         }
+    }).then(function (response) {
+        id = response.body.id;
+        return id;
     });
+});
+
+Cypress.Commands.add('logarUser', function (email, senha) {
+    return paginaLogin.typeLogin(email, senha);
 });
