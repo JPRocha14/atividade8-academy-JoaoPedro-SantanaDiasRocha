@@ -16,7 +16,7 @@
             E o usuário será cadastrado
             Exemplos:
             | nome                                                                                                 |  | senha        |
-            | a                                                                                                    |  | 123456       |
+            | j                                                                                                    |  | 123456       |
             | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa |  | 123456789123 |
             | 😂🤣😃                                                                                               |  | joaozinho    |
             | 123                                                                                                  |  | joaozinho    |
