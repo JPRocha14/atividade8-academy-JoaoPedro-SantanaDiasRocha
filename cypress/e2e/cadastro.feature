@@ -31,6 +31,12 @@
             Então a mensagem de sucesso será exibida
             E o usuário será cadastrado
 
+            Cenário: Deve ser possível verificar os tipos de usuários
+            E cadastro o usuário
+            E acesso o perfil do usuário
+            E acesso a área de gerenciamento da conta
+            Então posso verificar os tipos de usuário
+
             Cenário: Não deve ser possível cadastrar um usuário sem informar o campo nome
             E não preencho o nome
             E informo o email "joao@joao.com"

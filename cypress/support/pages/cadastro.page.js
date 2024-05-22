@@ -7,6 +7,7 @@ export default class CadastroPage {
     inputConfirmarSenha = ':nth-child(4) > .profile-input';
 
     buttonConfirmar = '.account-save-button';
+    buttonCadastroOk = '.modal-actions > button';
 
     modalMessege = '.modal-body';
     messegeName = '.input-error';
@@ -34,5 +35,9 @@ export default class CadastroPage {
 
     clickButtonConfirmar() {
         cy.get(this.buttonConfirmar).should('be.visible').click();
+    }
+
+    clickButtonOk() {
+        cy.get(this.buttonCadastroOk).should('be.visible').click();
     }
 }

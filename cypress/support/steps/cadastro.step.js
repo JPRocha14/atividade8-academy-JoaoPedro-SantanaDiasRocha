@@ -1,13 +1,16 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import CadastroPage from "../pages/cadastro.page";
+import GerenciaPage from "../pages/gerencia.page";
 import { faker } from "@faker-js/faker";
 
+var paginaEdicao = new GerenciaPage();
 var paginaCadastro = new CadastroPage();
 var novoEmail;
 
 Given('que acessei o site', function () {
     cy.visit('');
 });
+
 
 When('acesso a área de cadastro de usuários', function () {
     paginaCadastro.clickLinkRegistrar();
@@ -21,6 +24,24 @@ When('informo um e-mail válido', function () {
     novoEmail = faker.internet.email().toLowerCase();
     paginaCadastro.typeEmail(novoEmail);
 });
+
+When('cadastro o usuário', function () {
+    novoEmail = faker.internet.email().toLowerCase();
+    paginaCadastro.typeNome('João Pedro');
+    paginaCadastro.typeEmail(novoEmail);
+    paginaCadastro.typeSenha('123456');
+    paginaCadastro.typeConfirmarSenha('123456');
+    paginaCadastro.clickButtonConfirmar();
+    paginaCadastro.clickButtonOk();
+});
+
+When('acesso o perfil do usuário', function () {
+    paginaEdicao.clickLinkPerfil();
+});
+
+When('acesso a área de gerenciamento da conta', function () {
+    paginaEdicao.clickLinkEdicao();
+})
 
 When('informo o email com 60 caracteres', function () {
     novoEmail = faker.internet.email().toLowerCase();
@@ -68,11 +89,18 @@ When('não preencho a senha', function () { });
 
 When('não confirmo a senha', function () { });
 
+
 Then('a mensagem de sucesso será exibida', function () {
     cy.wait('@postUsers').then(function (usuario) {
         expect(usuario.response.body.type).to.eq(0);
     });
     cy.get(paginaCadastro.modalMessege).invoke('text').should('contain', 'SucessoCadastro realizado!');
+});
+
+Then('posso verificar os tipos de usuário', function () {
+    cy.get(':nth-child(3) > .profile-input').invoke('text').then(function (tipos) {
+        expect(tipos).to.eq('ComumAdministradorCrítico(a)');
+    });
 });
 
 Then('a mensagem de erro será exibida', function () {
