@@ -40,4 +40,13 @@ export default class CadastroPage {
     clickButtonOk() {
         cy.get(this.buttonCadastroOk).should('be.visible').click();
     }
+
+    typeCadastro(nome, email, senha, confirmaSenha) {
+        cy.get(this.inputNome).type(nome);
+        cy.get(this.inputEmail).type(email);
+        cy.get(this.inputSenha).type(senha);
+        cy.get(this.inputConfirmarSenha).type(confirmaSenha);
+        this.clickButtonConfirmar();
+        this.clickButtonOk();
+    }
 }

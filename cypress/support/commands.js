@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import LoginPage from "./pages/login.page";
+import CadastroPage from "./pages/cadastro.page";
+var paginaCadastro = new CadastroPage();
 var paginaLogin = new LoginPage();
 
 Cypress.Commands.add('cadastroUser', function (nome, email, senha) {
@@ -43,4 +45,8 @@ Cypress.Commands.add('cadastroUser', function (nome, email, senha) {
 
 Cypress.Commands.add('logarUser', function (email, senha) {
     return paginaLogin.typeLogin(email, senha);
+});
+
+Cypress.Commands.add('criarUsuario', function (nome, email, senha, confirmaSenha) {
+    return paginaCadastro.typeCadastro(nome, email, senha, confirmaSenha);
 });

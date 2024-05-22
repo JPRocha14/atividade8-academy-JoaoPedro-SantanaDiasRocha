@@ -27,12 +27,7 @@ When('informo um e-mail válido', function () {
 
 When('cadastro o usuário', function () {
     novoEmail = faker.internet.email().toLowerCase();
-    paginaCadastro.typeNome('João Pedro');
-    paginaCadastro.typeEmail(novoEmail);
-    paginaCadastro.typeSenha('123456');
-    paginaCadastro.typeConfirmarSenha('123456');
-    paginaCadastro.clickButtonConfirmar();
-    paginaCadastro.clickButtonOk();
+    cy.criarUsuario('João Pedro', novoEmail, '123456', '123456');
 });
 
 When('acesso o perfil do usuário', function () {
